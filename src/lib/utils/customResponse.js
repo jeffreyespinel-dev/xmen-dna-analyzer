@@ -6,6 +6,14 @@ class ForbiddenError extends Error {
     }
 }
 
+class BadRequestError extends Error {
+    constructor(message) {
+        super('BadRequestError action.');
+        this.status = 400;
+        this.message = message;
+    }
+}
+
 class MutantResponse {
     constructor() {
         this.status = 200;
@@ -15,5 +23,6 @@ class MutantResponse {
 
 module.exports = {
     ForbiddenError,
-    MutantResponse
+    MutantResponse,
+    BadRequestError
 }

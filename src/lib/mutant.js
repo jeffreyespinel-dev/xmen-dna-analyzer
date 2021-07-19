@@ -1,12 +1,20 @@
 'use strict';
 const DnaHelper = require('./utils/dnaHelper');
-const { MINIMAL_MATCHES_FOR_MUTANT, HUMAN_DNA_MSG } = require('./utils/constant');
-const { MutantResponse, ForbiddenError } = require('./utils/customResponse');
+const { 
+    MINIMAL_MATCHES_FOR_MUTANT, 
+    HUMAN_DNA_MSG, 
+    REQUIRED_DNA_MSG,
+    INVALID_DNA_TYPE_MSG 
+} = require('./utils/constant');
+const { MutantResponse, ForbiddenError, BadRequestError } = require('./utils/customResponse');
 const { sendMutantDna } = require('../services/xmenQueueService');
 
 class MutantBll {
 
     constructor(dna) {
+        if (!dna) throw new BadRequestError(REQUIRED_DNA_MSG);
+        if (!Array.isArray(dna)) throw new BadRequestError(INVALID_DNA_TYPE_MSG);
+        console.log(typeof (dna))
         this._dna = dna;
         this._dnaInNitrogenousBases = DnaHelper.dnaInNitrogenousBasesFormat(dna);
         this._mutantId = dna.join();
@@ -39,7 +47,7 @@ class MutantBll {
             this.dnaInNitrogenousBasesVertical.map(row => DnaHelper.identifySequencesInRow(row)),
             this.dnaInNitrogenousBasesDiagonal.map(row => DnaHelper.identifySequencesInRow(row))
         ]);
-        
+
         const sequences = [...horizontalSequencesCount, ...verticalSequencesCount, ...diagonalSequencesCount].filter(e => e > 0);
         const isMutant = this.isMutant(sequences);
 
