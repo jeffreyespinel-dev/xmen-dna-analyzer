@@ -1,7 +1,7 @@
 # X-Men DNA Analyzer
 
 ### Use
-####Analyze DNA endpoint:
+#### Analyze DNA endpoint:
 This endpoint was built for the purpose of analyzing and identifying if a DNA belongs to a human or a mutant.
 
 | Request Options  | Value | Comments |
@@ -25,7 +25,7 @@ Body: {
 }
 ``` 
 
-####Get DNA Stats:
+#### Get DNA Stats:
 This endpoint was built with the purpose of returning the statistics of the different DNAs analyzed.
 
 | Request Options  | Value | 
