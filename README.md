@@ -1,6 +1,6 @@
 # X-Men DNA Analyzer
 
-![N|Solid](https://drive.google.com/uc?export=view&id=1sdjYJxAmZeY8LEGn_f9yx2jlQu0iWVVN)
+![N|Solid](https://gl-media-container.s3.amazonaws.com/xmen-solution.png)
 
 ### Use
 #### Analyze DNA endpoint:
