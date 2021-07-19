@@ -1,9 +1,12 @@
 var AWS = require('aws-sdk');
-
-AWS.config.update({ region: 'us-east-1' });
+if (AWS.config)
+    AWS.config.update({ region: 'us-east-1' });
 var sqs = new AWS.SQS();
 
+const { QUEUE_URL } = require('../lib/utils/constant');
+
 sendMutantDna = (mutantInfo) => {
+
     const info = {
         mutantId: {
             DataType: "String",
@@ -14,7 +17,7 @@ sendMutantDna = (mutantInfo) => {
     const settings = {
         MessageAttributes: { ...info },
         MessageBody: JSON.stringify(mutantInfo),
-        QueueUrl: `https://sqs.us-east-1.amazonaws.com/793313263658/x-men-queue`
+        QueueUrl: QUEUE_URL
     };
     sqs.sendMessage(settings, (err, data) => {
         if (err) throw Error(err);

@@ -20,7 +20,7 @@ const getStats = async () => {
 
         return result.length > 0 ? result[0] : DEFAULT_STATS;
     } catch (error) {
-        return getErrorResponse(error);
+        throw error;
     }
 };
 
