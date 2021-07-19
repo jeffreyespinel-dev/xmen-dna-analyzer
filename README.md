@@ -2,6 +2,8 @@
 
 ![N|Solid](https://gl-media-container.s3.amazonaws.com/xmen-solution.png)
 
+> This solution also uses the following GitHub repositories:  [xmen-dna-register](https://github.com/jeffreyespinel-dev/xmen-dna-register) and [xmen-dna-analyzer-db-tables](https://github.com/jeffreyespinel-dev/xmen-dna-analyzer-db-tables).
+
 ### Use
 #### Analyze DNA endpoint:
 This endpoint was built for the purpose of analyzing and identifying if a DNA belongs to a human or a mutant.
