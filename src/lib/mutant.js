@@ -14,7 +14,6 @@ class MutantBll {
     constructor(dna) {
         if (!dna) throw new BadRequestError(REQUIRED_DNA_MSG);
         if (!Array.isArray(dna)) throw new BadRequestError(INVALID_DNA_TYPE_MSG);
-        console.log(typeof (dna))
         this._dna = dna;
         this._dnaInNitrogenousBases = DnaHelper.dnaInNitrogenousBasesFormat(dna);
         this._mutantId = dna.join();
